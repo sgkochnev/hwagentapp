@@ -1,0 +1,8 @@
+docker-compose up
+docker-compose down
+
+~/go/bin/migrate create -ext sql -dir .store/pg/migrations -seq init     
+
+~/go/bin/migrate -path ./store/pg/migrations -database 'postgres://hwagentapp:qwerty@localhost:5432/history?sslmode=disable' up
+
+~/go/bin/migrate -path ./store/pg/migrations -database 'postgres://hwagentapp:qwerty@localhost:5432/history?sslmode=disable' down

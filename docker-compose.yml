@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  pgdb:
+    image: postgres:14.2
+    container_name: pg
+    ports:
+      - 5432:5432
+    volumes:
+      - ./volumes/pgdata:/var/lib/postgresql/data/pgdata
+    environment:
+      POSTGRES_PASSWORD: qwerty
+      POSTGRES_USER: hwagentapp
+      POSTGRES_DB: history
+      PGDATA: /var/lib/postgresql/data/pgdata
+    restart: always
